@@ -9,11 +9,10 @@ try:
 except: 
   system("pip install requests")
   system("pip install base64")
-  system("pip install opencv-python")
   system("pip install mss")
 
   from requests import post
-  import base64 as b64, cv2
+  import base64 as b64
   from time import sleep
   import mss
   from mss.tools import to_png as to_bytes

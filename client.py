@@ -25,7 +25,7 @@ def mainloop(fps):
         img = visual.grab(visual.monitors[1])
         raw_bytes = to_bytes(img.rgb, img.size)
         print(type(raw_bytes))
-        post("http://127.0.0.1:8547", json={"bytes": str(raw_bytes)})
+        post("http://127.0.0.1:8547/stream", json={"bytes": str(raw_bytes)})
     except Exception as e: print(str(e))
 
 if __name__ == "__main__":

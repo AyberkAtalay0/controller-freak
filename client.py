@@ -23,10 +23,9 @@ def mainloop(fps):
     try:
       with mss.mss() as visual:
         img = visual.grab(visual.monitors[1])
-        # print(img.rgb)
-        print(img.__dir__())
-        raw_bytes = to_bytes(img.rgb, img.size)
-        post("http://127.0.0.1:8547/stream", json={"bytes": raw_bytes}, headers={'Content-Type': 'application/octet-stream'})
+        print(type(img.pixels))
+        raw_bytes = img.pixels #to_bytes(img.rgb, img.size)
+        post("http://127.0.0.1:8547/stream", json={"bytes": str(raw_bytes)})
     except Exception as e: print(str(e))
 
 if __name__ == "__main__":

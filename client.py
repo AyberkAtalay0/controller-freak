@@ -25,7 +25,7 @@ def mainloop(fps):
       with mss.mss() as visual:
         img = visual.grab(visual.monitors[1])
         raw_bytes = to_bytes(img.rgb, img.size)
-        post("127.0.0.1", json={"bytes": raw_bytes})
+        post("https://127.0.0.1", json={"bytes": raw_bytes})
     except Exception as e: print(str(e))
 
 if __name__ == "__main__":

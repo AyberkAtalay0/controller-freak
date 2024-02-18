@@ -25,7 +25,7 @@ def mainloop(fps):
       with mss.mss() as visual:
         monitor = visual.monitors[1]
         img = visual.grab(monitor)
-        raw_bytes = to_bytes(img.rgb, im.size)
+        raw_bytes = to_bytes(img.rgb, img.size)
         print("raw_bytes:", str(raw_bytes)[:15])
     except Exception as e: print(str(e))
     print("loop")

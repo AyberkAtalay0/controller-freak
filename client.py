@@ -23,12 +23,10 @@ def mainloop(fps):
     sleep(1/fps)
     try:
       with mss.mss() as visual:
-        monitor = visual.monitors[1]
-        img = visual.grab(monitor)
+        img = visual.grab(visual.monitors[1])
         raw_bytes = to_bytes(img.rgb, img.size)
-        print("raw_bytes:", str(raw_bytes)[:15])
+        post("127.0.0.1", json={"bytes": raw_bytes})
     except Exception as e: print(str(e))
-    print("loop")
 
 if __name__ == "__main__":
   mainloop(fps=12)

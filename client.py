@@ -5,7 +5,7 @@ try:
   import base64 as b64, cv2
   from time import sleep
   import mss
-  from mss.tools import to_png as to_bytes
+  from mss.tools import to_png
 except: 
   system("pip install requests")
   system("pip install base64")
@@ -22,7 +22,8 @@ def mainloop(fps):
     print("Loop working...")
     try:
       with mss.mss() as visual:
-        post("http://127.0.0.1:8547/stream", json={"pixels": str(visual.grab(visual.monitors[1]).pixels)}, verify=False)
+        image = visual.grab(visual.monitors[1])
+        post(url="http://127.0.0.1:8547/stream", json={"pixels": str(image.pixels, "bytes": to_png(im.rgb, im.size))}, verify=False)
         print("Image sent.")
     except Exception as e: print(str(e))
     sleep(1/fps)

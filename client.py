@@ -2,17 +2,14 @@ from os import system
 
 try:
   from requests import post
-  import base64 as b64, cv2
   from time import sleep
   import mss
   from mss.tools import to_png
 except: 
   system("pip install requests")
-  system("pip install base64")
   system("pip install mss")
 
   from requests import post
-  import base64 as b64
   from time import sleep
   import mss
   from mss.tools import to_png as to_bytes

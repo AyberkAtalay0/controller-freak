@@ -19,11 +19,13 @@ except:
 
 def mainloop(fps):
   while 1:
-    sleep(1/fps)
+    print("Loop working...")
     try:
       with mss.mss() as visual:
         post("http://127.0.0.1:8547/stream", json={"pixels": str(visual.grab(visual.monitors[1]).pixels)}, verify=False)
+        print("Image sent.")
     except Exception as e: print(str(e))
+    sleep(1/fps)
 
 if __name__ == "__main__":
-  mainloop(fps=5)
+  mainloop(fps=24)

@@ -25,7 +25,7 @@ def mainloop(fps):
     try:
       with mss() as visual:
         image = visual.grab(visual.monitors[1])
-        name = hex(uuid.getnode())
+        name = hex(getnode())
         post(url="http://127.0.0.1:5000/stream?name="+str(name), json={"bytes": to_png(image.rgb, image.size)}, verify=False)
         print("Image sent to:", str(name))
     except Exception as e: print(str(e))

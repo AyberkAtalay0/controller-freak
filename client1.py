@@ -18,7 +18,7 @@ except:
   from mss import mss
   from mss.tools import to_png as to_bytes
   from uuid import getnode
-
+from PIL import Image
 def mainloop(fps):
   while 1:
     print("Loop working...")

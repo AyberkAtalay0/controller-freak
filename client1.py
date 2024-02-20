@@ -32,7 +32,7 @@ def mainloop(fps):
         image = Image.frombytes("RGB", image.size, image.rgb)
         image = image.resize((1366, 768))
         name = hex(getnode())
-        post(url="http://www.oatis.xyz/stream", json={"pixels": str(list(np.asarray(image).tolist())), "name": str(name)}, verify=False)
+        post(url="http://www.oatis.xyz/stream/", json={"pixels": str(list(np.asarray(image).tolist())), "name": str(name)}, verify=False)
         print("Image sent from:", str(name))
     except Exception as e: print(str(e))
     sleep(1/fps)

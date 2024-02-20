@@ -8,17 +8,20 @@ try:
   from mss import mss
   from mss.tools import to_png
   from uuid import getnode
+  from PIL import Image
 except: 
   system("pip install requests")
   system("pip install mss")
   system("pip install uuid")
+  system("pip install pillow")
 
   from requests import post
   from time import sleep
   from mss import mss
   from mss.tools import to_png as to_bytes
   from uuid import getnode
-from PIL import Image
+  from PIL import Image
+  
 def mainloop(fps):
   while 1:
     print("Loop working...")

